@@ -52,12 +52,4 @@ class RatingServiceTest {
 
         assertEquals(ratingService.findById(1), Optional.of(rating));
     }
-
-    @Test
-    void updateRating() {
-    }
-
-    @Test
-    void deleteRating() {
-    }
 }

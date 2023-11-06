@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CurvePointPointService implements ICurvePointService {
+public class CurvePointService implements ICurvePointService {
     private final CurvePointRepository curvePointRepository;
 
-    public CurvePointPointService(CurvePointRepository curvePointRepository) {
+    public CurvePointService(CurvePointRepository curvePointRepository) {
         this.curvePointRepository = curvePointRepository;
     }
 
