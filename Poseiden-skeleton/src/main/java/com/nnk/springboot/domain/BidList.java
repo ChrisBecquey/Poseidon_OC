@@ -3,6 +3,8 @@ package com.nnk.springboot.domain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
+import org.springframework.lang.NonNull;
+
 import java.sql.Timestamp;
 
 @Entity
@@ -12,8 +14,11 @@ public class BidList {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer BidListId;
+    @NotBlank(message = "Account is mandatory")
     private String account;
+    @NotBlank(message = "Type is mandatory")
     private String type;
+    @NotBlank(message = "BidQuantity is mandatory")
     private Double bidQuantity;
     private Double askQuantity;
     private Double bid;
@@ -38,6 +43,9 @@ public class BidList {
         this.account = account;
         this.type = type;
         this.bidQuantity = bidQuantity;
+    }
+
+    public BidList() {
     }
 
     public Integer getBidListId() {
