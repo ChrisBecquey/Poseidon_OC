@@ -26,7 +26,6 @@ public class SpringSecurityBasicConfiguration {
         }).formLogin(Customizer.withDefaults()).build();
     }
 
-
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

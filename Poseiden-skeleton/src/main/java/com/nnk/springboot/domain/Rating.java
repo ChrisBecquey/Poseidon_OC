@@ -3,6 +3,7 @@ package com.nnk.springboot.domain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+
 import java.sql.Timestamp;
 
 @Entity
@@ -12,9 +13,11 @@ public class Rating {
     @Id
     @GeneratedValue
     private Integer id;
+    @NotBlank(message = "MoodysRating is mandatory")
     private String moodysRating;
     private String sandRating;
     private String fitchRating;
+    @NotNull(message = "OrderNumber must not be null")
     private Integer orderNumber;
 
     public Rating(String moodys_rating, String sand_pRating, String fitch_rating, int orderNumber) {
@@ -22,6 +25,9 @@ public class Rating {
         this.sandRating = sand_pRating;
         this.fitchRating = fitch_rating;
         this.orderNumber = orderNumber;
+    }
+
+    public Rating() {
     }
 
     public Integer getId() {

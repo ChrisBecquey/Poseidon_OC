@@ -2,6 +2,7 @@ package com.nnk.springboot.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+
 import java.sql.Timestamp;
 
 @Entity
@@ -11,6 +12,7 @@ public class RuleName {
     @Id
     @GeneratedValue
     private Integer id;
+    @NotBlank(message = "Name is mandatory")
     private String name;
     private String description;
     private String json;
@@ -25,6 +27,9 @@ public class RuleName {
         this.template = template;
         this.sqlStr = sqlStr;
         this.sqlPart = sql_part;
+    }
+
+    public RuleName() {
     }
 
     public Integer getId() {

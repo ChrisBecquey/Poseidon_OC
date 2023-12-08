@@ -15,6 +15,7 @@ public class CurvePoint {
     @Id
     @GeneratedValue
     private Integer id;
+    @NotNull(message = "CurveId must not be null")
     private Integer curveId;
     private Timestamp asOfDate;
     private Double term;
