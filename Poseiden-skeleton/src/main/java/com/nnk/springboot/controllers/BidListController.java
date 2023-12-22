@@ -30,7 +30,7 @@ public class BidListController {
     {
         // TODO: call service find all bids to show to the view
         List<BidList> bids = bidListService.findAll();
-        model.addAttribute("bids", bids);
+        model.addAttribute("bidLists", bids);
         return "bidList/list";
     }
 

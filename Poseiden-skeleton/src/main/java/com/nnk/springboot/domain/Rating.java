@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-import java.sql.Timestamp;
-
 @Entity
 @Table(name = "rating")
 public class Rating {
@@ -15,14 +13,14 @@ public class Rating {
     private Integer id;
     @NotBlank(message = "MoodysRating is mandatory")
     private String moodysRating;
-    private String sandRating;
+    private String sandPRating;
     private String fitchRating;
     @NotNull(message = "OrderNumber must not be null")
     private Integer orderNumber;
 
     public Rating(String moodys_rating, String sand_pRating, String fitch_rating, int orderNumber) {
         this.moodysRating = moodys_rating;
-        this.sandRating = sand_pRating;
+        this.sandPRating = sand_pRating;
         this.fitchRating = fitch_rating;
         this.orderNumber = orderNumber;
     }
@@ -46,12 +44,12 @@ public class Rating {
         this.moodysRating = moodysRating;
     }
 
-    public String getSandRating() {
-        return sandRating;
+    public String getSandPRating() {
+        return sandPRating;
     }
 
-    public void setSandRating(String sandRating) {
-        this.sandRating = sandRating;
+    public void setSandPRating(String sandRating) {
+        this.sandPRating = sandRating;
     }
 
     public String getFitchRating() {

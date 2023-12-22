@@ -1,7 +1,6 @@
 
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ž¾ã£øÿÿÿÿ8è¿Ð¤¹1
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ž¾ã£øÿÿÿÿ8è¿Ð¤¹1
 N
-java:S1135
-"2Complete the task associated to this TODO comment.(Ýñ«n8í¿Ð¤¹1
+java:S1135"2Complete the task associated to this TODO comment.(Ýñ«n8í¿Ð¤¹1
 K
-java:S1128"/Remove this unused import 'java.sql.Timestamp'.(èò½+8ï¿Ð¤¹1
+java:S1128"/Remove this unused import 'java.sql.Timestamp'.(èò½+8ï¿Ð¤¹1

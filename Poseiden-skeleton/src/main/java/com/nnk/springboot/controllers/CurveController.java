@@ -31,7 +31,7 @@ public class CurveController {
         // TODO: find all Curve Point, add to model
         List<CurvePoint> curves
                 = curvePointService.findAll();
-        model.addAttribute("curves", curves);
+        model.addAttribute("curvePoints", curves);
         return "curvePoint/list";
     }
 

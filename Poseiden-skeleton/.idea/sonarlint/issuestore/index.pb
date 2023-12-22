@@ -91,3 +91,6 @@ u
 Esrc/main/java/com/nnk/springboot/repositories/RuleNameRepository.java,2\5\25b9890d3a04ae94f136f3f0b1f82f99a9df72eb
 |
 Lsrc/main/java/com/nnk/springboot/configuration/CustomUserDetailsService.java,1\e\1e29abd361bb97da068effd9d80307a0878c4189
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
