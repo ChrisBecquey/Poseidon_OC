@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import jakarta.validation.Valid;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,11 +26,12 @@ public class TradeController {
     }
 
     @RequestMapping("/trade/list")
-    public String home(Model model)
+    public String home(Model model, Principal principal)
     {
         // TODO: find all Trade, add to model
         List<Trade> trades = tradeService.findAll();
         model.addAttribute("trades", trades);
+        model.addAttribute("username", principal.getName());
         return "trade/list";
     }
 

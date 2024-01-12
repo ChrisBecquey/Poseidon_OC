@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import jakarta.validation.Valid;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,11 +27,12 @@ public class RuleNameController {
     }
 
     @RequestMapping("/ruleName/list")
-    public String home(Model model)
+    public String home(Model model, Principal principal)
     {
         // TODO: find all RuleName, add to model
         List<RuleName> ruleNames = ruleNameService.findAll();
         model.addAttribute("ruleNames", ruleNames);
+        model.addAttribute("username", principal.getName());
         return "ruleName/list";
     }
 

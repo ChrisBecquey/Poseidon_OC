@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import jakarta.validation.Valid;
 
 import javax.swing.text.html.Option;
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,12 +27,13 @@ public class CurveController {
     }
 
     @RequestMapping("/curvePoint/list")
-    public String home(Model model)
+    public String home(Model model, Principal principal)
     {
         // TODO: find all Curve Point, add to model
         List<CurvePoint> curves
                 = curvePointService.findAll();
         model.addAttribute("curvePoints", curves);
+        model.addAttribute("username", principal.getName());
         return "curvePoint/list";
     }
 

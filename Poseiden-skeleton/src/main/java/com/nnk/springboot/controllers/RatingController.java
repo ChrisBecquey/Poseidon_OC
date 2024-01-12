@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import jakarta.validation.Valid;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,10 +26,11 @@ public class RatingController {
     }
 
     @RequestMapping("/rating/list")
-    public String home(Model model) {
+    public String home(Model model, Principal principal) {
         // TODO: find all Rating, add to model
         List<Rating> ratings = ratingService.findAll();
         model.addAttribute("ratings", ratings);
+        model.addAttribute("username", principal.getName());
         return "rating/list";
     }
 

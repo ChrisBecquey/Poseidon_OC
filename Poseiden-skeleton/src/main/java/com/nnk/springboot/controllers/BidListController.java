@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import jakarta.validation.Valid;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,11 +27,12 @@ public class BidListController {
     }
 
     @RequestMapping("/bidList/list")
-    public String home(Model model)
+    public String home(Model model, Principal principal)
     {
         // TODO: call service find all bids to show to the view
         List<BidList> bids = bidListService.findAll();
         model.addAttribute("bidLists", bids);
+        model.addAttribute("username", principal.getName());
         return "bidList/list";
     }
 

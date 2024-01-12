@@ -2,6 +2,7 @@ package com.nnk.springboot.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,11 +15,13 @@ import java.util.List;
 @Table(name = "users")
 public class User implements UserDetails {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @NotBlank(message = "Username is mandatory")
     private String username;
-    @NotBlank(message = "Password is mandatory")
+    @Transient
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$", message = "Incorrect format")
+    private String clearPassword;
     private String password;
     @NotBlank(message = "FullName is mandatory")
     private String fullname;
@@ -97,5 +100,12 @@ public class User implements UserDetails {
 
     public void setRole(String role) {
         this.role = role;
+    }
+    public String getClearPassword() {
+        return clearPassword;
+    }
+
+    public void setClearPassword(String clearPassword) {
+        this.clearPassword = clearPassword;
     }
 }
