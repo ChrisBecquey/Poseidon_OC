@@ -18,7 +18,9 @@ public class CurvePoint {
     @NotNull(message = "CurveId must not be null")
     private Integer curveId;
     private Timestamp asOfDate;
+    @NotNull(message = "Term must not be null")
     private Double term;
+    @NotNull(message ="Term must not be null")
     private Double value;
     private Timestamp creationDate;
 

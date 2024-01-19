@@ -94,3 +94,5 @@ Lsrc/main/java/com/nnk/springboot/configuration/CustomUserDetailsService.java,1
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+H
+spring-boot-skeleton.iml,6\e\6e64b98fa2c253c25c368624689f4b57e39a7422
