@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title> Spring Boot </title>
-    <link rel="stylesheet" href="/css/styles.css"/>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body>
-<h3> HOME PAGE </h3>
-<div class="row">
-    <div class="col-6">
-        <a href="/bidList/list">Bid List</a>&nbsp;|&nbsp;
-        <a href="/curvePoint/list">Curve Points</a>&nbsp;|&nbsp;
-        <a href="/rating/list">Ratings</a>&nbsp;|&nbsp;
-        <a href="/trade/list">Trade</a>&nbsp;|&nbsp;
-        <a href="/ruleName/list">Rule</a>
+<div class="container">
+    <h3> HOME PAGE </h3>
+
+    <div class="row">
+        <div class="col-6">
+            <a href="/bidList/list">Bid List</a>&nbsp;|&nbsp;
+            <a href="/curvePoint/list">Curve Points</a>&nbsp;|&nbsp;
+            <a href="/rating/list">Ratings</a>&nbsp;|&nbsp;
+            <a href="/trade/list">Trade</a>&nbsp;|&nbsp;
+            <a href="/ruleName/list">Rule</a>
+        </div>
+        <div class="col-6 text-right">
+            Logged in user: <b th:inline="text" th:text="${username}" class="user"></b>
+            <form th:action="@{/app-logout}" method="POST">
+                <input type="submit" value="Logout"/>
+            </form>
+        </div>
     </div>
-    <div class="col-6 text-right">
-        Logged in user: <b th:inline="text" th:text="${username}" class="user" ></b>
-        <form th:action="@{/app-logout}" method="POST">
-            <input type="submit" value="Logout"/>
-        </form>
+    <div>
+        <p>
+            <a href="/login">Login</a> or create one <a href="/user/list">User management</a>
+        </p>
     </div>
 </div>
-<p>
-    <a href="/login">Login</a> or create one <a href="/user/list">User management</a>
-</p>
 </body>
 </html>

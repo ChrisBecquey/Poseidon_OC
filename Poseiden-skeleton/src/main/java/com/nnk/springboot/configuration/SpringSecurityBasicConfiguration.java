@@ -18,6 +18,14 @@ public class SpringSecurityBasicConfiguration {
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
 
+    /**
+     * Configure le filtre de sécurité pour gérer les requêtes HTTP.
+     * Définit les règles d'autorisation basées sur les rôles des utilisateurs et les mécanismes d'authentification.
+     *
+     * @param http l'objet HttpSecurity utilisé pour configurer les paramètres de sécurité
+     * @return un objet SecurityFilterChain représentant le filtre de sécurité configuré
+     * @throws Exception si une erreur se produit lors de la configuration
+     */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http.authorizeHttpRequests(auth -> {
@@ -32,11 +40,24 @@ public class SpringSecurityBasicConfiguration {
                 .build();
     }
 
+    /**
+     * Fournit une instance de BCryptPasswordEncoder pour encoder les mots de passe.
+     *
+     * @return un objet BCryptPasswordEncoder pour l'encodage des mots de passe
+     */
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    /**
+     * Configure l'AuthenticationManager avec un service de détails utilisateur personnalisé et un encodeur de mots de passe.
+     *
+     * @param http            l'objet HttpSecurity utilisé pour configurer les paramètres de sécurité
+     * @param passwordEncoder l'objet BCryptPasswordEncoder utilisé pour l'encodage des mots de passe
+     * @return un objet AuthenticationManager configuré avec le service de détails utilisateur et l'encodeur de mots de passe spécifiés
+     * @throws Exception si une erreur se produit lors de la configuration
+     */
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity http, BCryptPasswordEncoder passwordEncoder) throws Exception {
         AuthenticationManagerBuilder authenticationManagerBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
