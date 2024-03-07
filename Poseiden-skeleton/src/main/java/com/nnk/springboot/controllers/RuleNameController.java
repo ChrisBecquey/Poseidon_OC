@@ -46,7 +46,7 @@ public class RuleNameController {
         // TODO: check data valid and save to db, after saving return RuleName list
         if(!result.hasErrors()) {
             ruleNameService.createRuleName(ruleName);
-            return "redirect:/ruleNameList";
+            return "redirect:/ruleName/list";
         }
         return "ruleName/add";
     }
